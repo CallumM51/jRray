@@ -38,13 +38,37 @@ public:
     // PROMISES:
     //  lorem
 
-    bool addAll(Collection<? extends T> c);
+    bool addAll(jRray c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool addAll(Collection<? extends T> c);
+    bool addAll(std::vector<T> c);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool addAll(T c[]);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool addAll(int index, jRray c);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool addAll(int index, std::vector<T> c);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool addAll(int index, T []c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -80,7 +104,19 @@ public:
     // PROMISES:
     //  lorem
 
-    bool containsAll(Collection<?> c);
+    bool containsAll(jRray c);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool containsAll(std::vector<T> c);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool containsAll(T c[]);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -98,7 +134,7 @@ public:
     // PROMISES:
     //  lorem
 
-    enum<E> elements();
+    enum<E> elements(); //!!Needs more research
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -122,7 +158,7 @@ public:
     // PROMISES:
     //  lorem
 
-    void forEach(Consumer<? super T> action);
+    void forEach(Consumer<? super T> action); //!!Most likely remove
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -164,12 +200,6 @@ public:
     // PROMISES:
     //  lorem
 
-    std::iterator<T> iterator();
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
-
     T lastElement();
     //REQUIRES:
     //  lorem
@@ -200,7 +230,19 @@ public:
     // PROMISES:
     //  lorem
 
-    bool removeAll(Collection <?> c);
+    bool removeAll(jRray c);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool removeAll(std::vector<T> c);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool removeAll(T c[]);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -224,7 +266,7 @@ public:
     // PROMISES:
     //  lorem
 
-    bool removeIf(Predicate<? super E> filter);
+    bool removeIf(Predicate<? super E> filter); //!!Maybe 
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -236,13 +278,25 @@ public:
     // PROMISES:
     //  lorem
 
-    void replaceAll (UnaryOperator<E> operator);
+    void replaceAll(UnaryOperator<E> operator); //!!Same implementation as removeIf()
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool retainAll(Collection<?> c);
+    bool retainAll(jRray c);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool retainAll(std::vector<T> c);
+    //REQUIRES:
+    //  lorem
+    // PROMISES:
+    //  lorem
+
+    bool retainAll(T c[]);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -272,13 +326,7 @@ public:
     // PROMISES:
     //  lorem
 
-    void sort(Comparator<? super E> c);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
-
-    Spliterator<E> spliterator();
+    void sort(Comparator<? super E> c); //!!Needs more research
     //REQUIRES:
     //  lorem
     // PROMISES:
