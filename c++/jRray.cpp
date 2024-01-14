@@ -140,15 +140,23 @@ template<typename T> bool jRray<T>::addAll(int index, std::vector<T> c)
 }
 template<typename T> bool jRray<T>::addAll(int index, jRray c)
 {
-
+    
 }
-template<typename T> bool jRray<T>::addAll(T c[])
+template<typename T> bool jRray<T>::addAll(const T &c[])
 {
-
+    for(int i = 0; i < c.size(); i++)
+        {
+            vec.push_back(c[i]);
+        }
+    return true;
 }
-template<typename T> bool jRray<T>::addAll(std::vector<T> c)
+template<typename T> bool jRray<T>::addAll(const std::vector<T> &c)
 {
-
+    for(int i = 0; i < c.size(); i++)
+    {
+        vec.push_back(c[i]);
+    }
+    return true;
 }
 template<typename T> bool jRray<T>::addAll(jRray c)
 {
