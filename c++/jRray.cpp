@@ -22,13 +22,7 @@ template <typename T> std::string jRray<T>::toString()
 
 template <typename T> T jRray<T>::toArray()
 {
-    const size_t size = vec.size();
-    std::array<T, size> arr;
-
-    for(int i = 0; i < vec.size(); i++) {
-        arr[i] = vec[i];
-    }
-
+    std::vector<T> arr(vec);
     return arr;
 }
 
@@ -36,13 +30,7 @@ template <typename T>
 template <typename A>
 T jRray<T>::toArray(const A &a)
 {
-    const size_t size = vec.size();
-    std::array<A, size> arr;
-    A[size];
-    for(int i = 0; i < vec.size(); i++) {
-        arr[i] = vec[i];
-    }
-
+    std::vector<A> arr(vec);
     return arr;
 }
 
