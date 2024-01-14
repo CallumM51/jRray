@@ -1,29 +1,29 @@
 #include "jRray.h"
-template<class T>
-int jRray::size()
+//template<class T>
+template <typename T> int jRray<T>::size()
 {
     return vec.size();
 }
-void jRray::setElementAt(const T &obj,const int &index)
+
+template <typename T> void jRray<T>::setElementAt(const T &obj,const int &index)
 {
     vec[index] = obj;
 }
 
-
-T jRray::set(const int &index,const T &element)
+template <typename T> T jRray<T>::set(const int &index,const T &element)
 {
     T temp = vec[index];
     vec[index] = element;
     return temp;
 }
 
-void jRray::removeElementAt(int index)
+template <typename T> void jRray<T>::removeElementAt(int index)
 {
     vec.erase(vec.begin() + index);
 }
 
 
-bool jRray::removeElement(T t)
+template <typename T> bool jRray<T>::removeElement(T t)
 {   
     for(int i = 0; i < vec.size(); i++)
     {
@@ -36,18 +36,18 @@ bool jRray::removeElement(T t)
     return false;
 }
 
-T jRray::remove(int index)
+template <typename T> T jRray<T>::remove(int index)
 {
     T temp = vec[index];
     vec.erase(vec.begin() + index);
     return temp;
 }
 
-int jRray::lastIndexOf(const T &t, const int &index)
+template <typename T> int jRray<T>::lastIndexOf(const T &t, const int &index)
 {
 
 }
-int jRray::lastIndexOf(const T &t)
+template <typename T> int jRray<T>::lastIndexOf(const T &t)
 {
     for(auto i = vec.size() - 1; i >= 0; i--)
     {
@@ -59,24 +59,24 @@ int jRray::lastIndexOf(const T &t)
     return -1;
 }
 
-T jRray::lastElement()
+template <typename T> T jRray<T>::lastElement()
 {
     return vec.back();
 }
-bool jRray::isEmpty()
+template <typename T> bool jRray<T>::isEmpty()
 {
     return vec.empty();
 }
 
-void jRray::insertElementAt(const T &t, const int &index)
+template <typename T> void jRray<T>::insertElementAt(const T &t, const int &index)
 {
     vec.insert(vec.begin() + index, t);
 }
-int jRray::indexOf(T t, int index)
+template <typename T> int jRray<T>::indexOf(T t, int index)
 {
 
 }
-int jRray::indexOf(T t)
+template <typename T> int jRray<T>::indexOf(T t)
 {
     for(int i = 0; i < vec.size(); i++)
     {
@@ -88,7 +88,7 @@ int jRray::indexOf(T t)
     return -1;
 }
 
-bool jRray::equals(std::vector<T> v)
+template <typename T> bool jRray<T>::equals(std::vector<T> v)
 {
     if(vec.size() != v.size())
     {
@@ -103,7 +103,7 @@ bool jRray::equals(std::vector<T> v)
     }
     return true;
 }
-bool jRray::equals(jRray j)
+template <typename T> bool jRray<T>::equals(jRray j)
 {
     if(vec.size() != j.size())
     {
@@ -119,12 +119,12 @@ bool jRray::equals(jRray j)
     return true;
 }
 
-T& jRray::at(const int &index)
+template <typename T> T& jRray<T>::at(const int &index)
 {
     return vec[index];
 }
 
-bool jRray::contains(const T &t)
+template <typename T> bool jRray<T>::contains(const T &t)
 {
     for(int i = 0; i < vec.size(); i++)
     {
@@ -135,24 +135,24 @@ bool jRray::contains(const T &t)
     }
     return false;
 }
-jRray jRray::clone()
+template <typename T> jRray<T> jRray<T>::clone()
 {
 
 }
-void jRray::clear()
+template <typename T> void jRray<T>::clear()
 {
     vec.clear();
 }
-void jRray::add(int index, T t)
+template <typename T> void jRray<T>::add(int index, T t)
 {
     vec.insert(vec.begin() + index, t);
 }
-bool jRray::add(T t)
+template <typename T> bool jRray<T>::add(T t)
 {
     vec.push_back(t);
     return true;
 }
-void jRray::addElement(T obj)
+template <typename T> void jRray<T>::addElement(T obj)
 {
     vec.push_back(obj);
 }
