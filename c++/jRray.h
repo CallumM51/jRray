@@ -9,7 +9,11 @@
 #include <vector>
 #include <iterator>
 #include <string>
-
+template <typename T> struct Comparator {
+    bool operator()(T x, T y) const {
+       return true;
+    }
+};
 template<typename T> class jRray
 {
     private:
@@ -324,7 +328,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    void sort(Comparator<? super E> c); //!!Needs more research
+    void sort(const Comparator<T> &c); //!!Needs more research
     //REQUIRES:
     //  lorem
     // PROMISES:

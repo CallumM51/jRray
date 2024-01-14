@@ -30,36 +30,43 @@ template<typename T> jRray<T> jRray<T>::subJrray(int fromIndex, int toIndex)
     }   
     return temp;
 }
-void quicksort(std::vector<T> &vec, const int &left, const int &right)
+
+
+template <typename T> void quicksort(std::vector<T> &vec, const int &left, const int &right, const Comparator<T> &compare)
 {
-    int i = left, j = right;
-    T tmp;
-    T pivot = vec[left];
-    while(i <= j)
-    {
-        while(vec[i] < pivot)
-            i++;
-        while(vec[j] > pivot)
-            j--;
-        if(i <= j)
+    if (left + 7 < right){
+        for(int i = left + 1; i < right; i++)
         {
-            tmp = vec[i];
-            vec[i] = vec[j];
-            vec[j] = tmp;
-            i++;
-            j--;
+            for(int j = i; j > left && compare(vec[j-1], vec[j]); j-)
+            {
+                    T temp = vec[i];
+                    vec[i] = vec[j];
+                    vec[j] = temp;
+            }
+        }
+        return;
+    }
+    T pivot = vec[left];
+    int less = left;
+    for(int i = left + 1; i < right; i++)
+    {
+        if(compare(pivot, vec[i]))
+        {
+            less++;
+            T temp = vec[i];
+            vec[i] = vec[less];
+            vec[less] = temp;
         }
     }
-    if(left < j)
-        quicksort(vec, left, j);
-    if(i < right)
-        quicksort(vec, i, right);
-    
-
+    T temp = vec[left];
+    vec[left] = vec[less];
+    vec[less] = temp;
+    quicksort(vec, left, less, compare);
+    quicksort(vec, less + 1, right, compare);
 }
-template<typename T> void jRray<T>::sort(Comparator<? super E> c)
+template<typename T> void jRray<T>::sort(const Comparator<T> &c)
 {
-
+    quicksort(vec, 0, vec.size(), c);
 }
 
 template<typename T> void jRray<T>::setSize(const int &newSize)
@@ -79,7 +86,7 @@ template<typename T> bool jRray<T>::retainAll(const jRray &c)
 {
 
 }
-template<typename T> void jRray<T>:replaceAll(UnaryOperator<E> operator)
+template<typename T> void jRray<T>::replaceAll(UnaryOperator<E> operator)
 {
 
 }
