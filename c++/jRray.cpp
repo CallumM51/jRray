@@ -3,11 +3,21 @@
 
 template <typename T> void jRray<T>::trimToSize()
 {
-
+    vec.shrink_to_fit();
 }
 template <typename T> std::string jRray<T>::toString()
 {
-
+    std::string temp = "[";
+    for(int i = 0; i < vec.size(); i++) {
+        std::ostringstream ss;
+        ss << vec.at(i);
+        temp.append(ss.str());
+        if(i != (vec.siz()-1)) {
+            temp.append(",");
+        }
+    }
+    temp.append("]");
+    return temp;
 }
 template <typename T> T jRray<T>::toArray()
 {
