@@ -90,15 +90,69 @@ template<typename T> void jRray<T>::setSize(const int &newSize)
 
 template<typename T> bool jRray<T>::retainAll(const T &c)
 {
+    std::vector<T> tmp;
 
+    for(T temp : this.vec)
+    {
+        bool keep = false;
+        
+        if(temp != cTemp)
+        {
+            tmp.push_back(temp);
+        }
+    }
+
+    this.removeAll(tmp);
 }
 template<typename T> bool jRray<T>::retainAll(const std::vector<T> &c)
 {
+    std::vector<T> tmp;
 
+    for(T temp : this.vec)
+    {
+        bool keep = false;
+
+        for(T cTemp : c)
+        {
+            if(temp == cTemp)
+            {
+                keep = true;
+                break;
+            }
+        }
+
+        if(!keep)
+        {
+            tmp.push_back(temp);
+        }
+    }
+
+    this.removeAll(tmp);
 }
 template<typename T> bool jRray<T>::retainAll(const jRray &c)
 {
+    std::vector<T> tmp;
 
+    for(T temp : this.vec)
+    {
+        bool keep = false;
+
+        for(T cTemp : c.vec)
+        {
+            if(temp == cTemp)
+            {
+                keep = true;
+                break;
+            }
+        }
+
+        if(!keep)
+        {
+            tmp.push_back(temp);
+        }
+    }
+
+    this.removeAll(tmp);
 }
 
 // template<typename T> void jRray<T>::replaceAll(UnaryOperator<E> operator)
@@ -128,15 +182,51 @@ template<typename T> void jRray<T>::removeAllElements()
 
 template<typename T> bool jRray<T>::removeAll(const T &c)
 {
+    std::unordered_set<T> set;
+    for(int i = 0; i < c.size(); i++)
+    {
+        set.insert(c[i]);
+    }
 
+    for(int i = 0; i < vec.size(); i++)
+    {
+        if(set.find(vec[i]) != set.end())
+        {
+            vec.remove(vec.begin() + i);
+        }
+    }
 }
 template<typename T> bool jRray<T>::removeAll(const std::vector<T> &c)
 {
+    std::unordered_set<T> set;
+    for(int i = 0; i < c.size(); i++)
+    {
+        set.insert(c[i]);
+    }
 
+    for(int i = 0; i < vec.size(); i++)
+    {
+        if(set.find(vec[i]) != set.end())
+        {
+            vec.remove(vec.begin() + i);
+        }
+    }
 }
 template<typename T> bool jRray<T>::removeAll(const jRray &c)
 {
+    std::unordered_set<T> set;
+    for(int i = 0; i < c.size(); i++)
+    {
+        set.insert(c.at[i]);
+    }
 
+    for(int i = 0; i < vec.size(); i++)
+    {
+        if(set.find(vec[i]) != set.end())
+        {
+            vec.remove(vec.begin() + i);
+        }
+    }
 }
 
 
@@ -163,7 +253,9 @@ template<typename T> void jRray<T>::forEach(const std::function<void(int)> func)
 
 template<typename T> void jRray<T>::ensureCapacity(const int &minCapacity)
 {
-
+    if (vec.size() < minCapacity) {
+        vec.reserve(minCapacity - vec.size());
+    }
 }
 
 template<typename T> std::set<T> jRray<T>::elements()
