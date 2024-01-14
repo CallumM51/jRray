@@ -88,19 +88,19 @@ template<typename T> void jRray<T>::setSize(const int &newSize)
     vec.resize(newSize);
 }
 
-template<typename T> bool jRray<T>::retainAll(const T &c)
-{
-    std::vector<T> tmp;
+// template<typename T> bool jRray<T>::retainAll(const T &c)
+// {
+//     std::vector<T> tmp;
 
-    for(T temp : this.vec)
-    {
-        bool keep = false;
+//     for(T temp : this.vec)
+//     {
+//         bool keep = false;
         
-        if(temp != cTemp)
-        {
-            tmp.push_back(temp);
-        }
-    }
+//         if(temp != cTemp)
+//         {
+//             tmp.push_back(temp);
+//         }
+//     }
 
 //     this.removeAll(tmp);
 //     return true;
@@ -270,7 +270,7 @@ template<typename T> int jRray<T>::hashCode()
     return hash;
 }
 
-template<typename T> void jRray<T>::forEach(const std::function<void(int)> func)
+template<typename T> void jRray<T>::forEach(const std::function<void(T)> func)
 {
     for(int i = 0; i < vec.size(); i++)
     {
