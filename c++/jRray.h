@@ -14,10 +14,9 @@ template<class T>
 
 class jRray 
 {
-private:
-    std::vector<T> vec;
-public:
-
+    private:
+        std::vector<T> vec;
+    public:
     //constructors and destructors
     jRray();
     ~jRray();
@@ -26,7 +25,7 @@ public:
     jRray& operator=( const jRray& other );
 
     //Methods
-    bool add(T t);
+    bool add(const T &t);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -38,13 +37,13 @@ public:
     // PROMISES:
     //  lorem
 
-    bool addAll(jRray c);
+    bool addAll(const jRray &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool addAll(std::vector<T> c);
+    bool addAll(const std::vector<T> &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -74,7 +73,7 @@ public:
     // PROMISES:
     //  lorem
 
-    void addElement(T obj);
+    void addElement(const T &obj);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -128,7 +127,7 @@ public:
     // PROMISES:
     //  lorem
 
-    T elementAt(int index);
+    T& at(int index);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -368,5 +367,268 @@ public:
     // PROMISES:
     //  lorem
 };
+
+void jRray::trimToSize()
+{
+
+}
+std::string jRray::toString()
+{
+
+}
+T[] jRray::toArray(T a[])
+{
+
+}
+T[] jRray::toArray()
+{
+
+}
+std::vector<T> jRray::subVector(const int &fromIndex,const int &toIndex)
+{
+    std::vector<T> temp;
+    for(int i = fromIndex; i < toIndex; i++)
+    {
+        temp.push_back(vec[i]);
+    }   
+    return temp;
+}
+jRray jRray::subJrray(int fromIndex, int toIndex)
+{
+    jRray temp;
+    for(int i = fromIndex; i < toIndex; i++)
+    {
+        temp.add(vec[i]);
+    }   
+    return temp;
+}
+void jRray::sort(Comparator<? super E> c)
+{
+
+}
+int jRray::size()
+{
+    return vec.size();
+}
+setSize(int newSize)
+{
+
+}
+void jRray::setElementAt(T obj, int index)
+{
+
+}
+T jRray::set(int index, T element)
+{
+
+}
+bool jRray::retainAll(T c[])
+{
+
+}
+bool jRray::retainAll(std::vector<T> c)
+{
+
+}
+bool jRray::retainAll(jRray c)
+{
+
+}
+void jRray::replaceAll(UnaryOperator<E> operator)
+{
+
+}
+void jRray::removeRange(int fromIndex, int toIndex)
+{
+    const int size = vec.size();
+    const int range = toIndex - fromIndex;
+    for(int i = fromIndex; i < size; i++)
+    {
+        vec[i] = vec[i + range];
+    }
+}
+bool jRray::removeIf(Predicate<? super E> filter)
+{
+
+}
+void jRray::removeElementAt(int index)
+{
+
+}
+bool jRray::removeElement(T t)
+{   
+    for(int i = 0; i < vec.size(); i++)
+    {
+        if(vec[i] == t)
+        {
+            vec.erase(vec.begin() + i);
+            return true;
+        }
+    }
+    return false;
+}
+void jRray::removeAllElements()
+{
+
+}
+bool jRray::removeAll(T c[])
+{
+
+}
+bool jRray::removeAll(std::vector<T> c)
+{
+
+}
+bool jRray::removeAll(jRray c)
+{
+
+}
+T jRray::remove(int index)
+{
+    T temp = vec[index];
+    vec.erase(vec.begin() + index);
+    return temp;
+}
+int jRray::lastIndexOf(T t, int index)
+{
+
+}
+int jRray::lastIndexOf(T t)
+{
+}
+T jRray::lastElement()
+{
+    return vec.back();
+}
+bool jRray::isEmpty()
+{
+    return vec.empty();
+}
+void jRray::insertElementAt(T t, int index)
+{
+
+}
+int jRray::indexOf(T t, int index)
+{
+
+}
+int jRray::indexOf(T t)
+{
+
+}
+int jRray::hashCode()
+{
+
+}
+
+void jRray::forEach(Consumer<? super T> action)
+{
+
+}
+bool jRray::equals(std::vector<T> v)
+{
+
+}
+bool jRray::equals(jRray j)
+{
+
+}
+void jRray::ensureCapacity(const int &minCapacity)
+{
+
+}
+enum<E> jRray::elements()
+{
+
+}
+T& jRray::at(const int &index)
+{
+    return vec[index];
+}
+void jRray::copyInto(T anArray[])
+{
+
+}
+bool jRray::containsAll(T c[])
+{
+
+}
+bool jRray::containsAll(std::vector<T> c)
+{
+
+}
+bool jRray::containsAll(jRray c)
+{
+
+}
+bool jRray::contains(T t)
+{
+
+}
+jRray jRray::clone()
+{
+
+}
+void jRray::clear()
+{
+
+}
+int jRray::capacity()
+{
+
+}
+void jRray::addElement(T obj)
+{
+
+}
+bool jRray::addAll(int index, T []c)
+{
+
+}
+bool jRray::addAll(int index, std::vector<T> c)
+{
+
+}
+bool jRray::addAll(int index, jRray c)
+{
+
+}
+bool jRray::addAll(T c[])
+{
+
+}
+bool jRray::addAll(std::vector<T> c)
+{
+
+}
+bool jRray::addAll(jRray c)
+{
+    for(int i = 0; i < c.size(); i++)
+    {
+        vec.push_back(c.at(i));
+    }
+    return true;
+}
+void jRray::add(int index, T t)
+{
+
+}
+bool jRray::add(T t)
+{
+    vec.push_back(t);
+    return true;
+}
+jRray& jRray::operator=( const jRray& other )
+{
+
+}
+jRray::~jRray()
+{
+
+}
+jRray::jRray()
+{
+
+}
 
 #endif
