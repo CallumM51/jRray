@@ -38,6 +38,25 @@ template<typename T> class jRray
     //assignment operators
     jRray<T>& operator=( const jRray<T>& other );
 
+    T& operator[](const int& index);
+
+    //Iterators
+    typename std::vector<T>::iterator begin();
+
+    typename std::vector<T>::iterator rbegin();
+
+    typename std::vector<T>::iterator end();
+
+    typename std::vector<T>::iterator rend();
+
+    typename std::vector<T>::const_iterator cbegin();
+
+    typename std::vector<T>::const_iterator crbegin();
+
+    typename std::vector<T>::const_iterator cend();
+
+    typename std::vector<T>::const_iterator crend();
+    
     //Methods
     bool add(const T &t);
     //REQUIRES:
