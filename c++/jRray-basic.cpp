@@ -17,13 +17,13 @@ template <typename T> T jRray<T>::set(const int &index,const T &element)
     return temp;
 }
 
-template <typename T> void jRray<T>::removeElementAt(int index)
+template <typename T> void jRray<T>::removeElementAt(const int &index)
 {
     vec.erase(vec.begin() + index);
 }
 
 
-template <typename T> bool jRray<T>::removeElement(T t)
+template <typename T> bool jRray<T>::removeElement(const T &t)
 {   
     for(int i = 0; i < vec.size(); i++)
     {
@@ -36,7 +36,7 @@ template <typename T> bool jRray<T>::removeElement(T t)
     return false;
 }
 
-template <typename T> T jRray<T>::remove(int index)
+template <typename T> T jRray<T>::remove(const int &index)
 {
     T temp = vec[index];
     vec.erase(vec.begin() + index);
@@ -72,7 +72,7 @@ template <typename T> void jRray<T>::insertElementAt(const T &t, const int &inde
 {
     vec.insert(vec.begin() + index, t);
 }
-template <typename T> int jRray<T>::indexOf(T t, int index)
+template <typename T> int jRray<T>::indexOf(const T &t, const int &index)
 {
 
 }
@@ -143,16 +143,16 @@ template <typename T> void jRray<T>::clear()
 {
     vec.clear();
 }
-template <typename T> void jRray<T>::add(int index, T t)
+template <typename T> void jRray<T>::add(const int &index, const T &t)
 {
     vec.insert(vec.begin() + index, t);
 }
-template <typename T> bool jRray<T>::add(T t)
+template <typename T> bool jRray<T>::add(const T &t)
 {
     vec.push_back(t);
     return true;
 }
-template <typename T> void jRray<T>::addElement(T obj)
+template <typename T> void jRray<T>::addElement(const T &obj)
 {
     vec.push_back(obj);
 }

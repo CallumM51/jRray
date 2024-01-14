@@ -125,7 +125,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    T& at(int index);
+    T& at(const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
