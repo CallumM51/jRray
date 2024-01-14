@@ -1,5 +1,5 @@
 #include "jRray.h"
-//template<class T>
+
 template <typename T> int jRray<T>::size()
 {
     return vec.size();
@@ -45,7 +45,14 @@ template <typename T> T jRray<T>::remove(const int &index)
 
 template <typename T> int jRray<T>::lastIndexOf(const T &t, const int &index)
 {
-
+    for(auto i = index; i >= 0; i--)
+    {
+        if(vec[i] == t)
+        {
+            return i;
+        }
+    }
+    return -1;
 }
 template <typename T> int jRray<T>::lastIndexOf(const T &t)
 {
@@ -74,7 +81,14 @@ template <typename T> void jRray<T>::insertElementAt(const T &t, const int &inde
 }
 template <typename T> int jRray<T>::indexOf(const T &t, const int &index)
 {
-
+    for(int i = index; i < vec.size(); i++)
+    {
+        if(vec[i] == t)
+        {
+            return i;
+        }
+    }
+    return -1;
 }
 template <typename T> int jRray<T>::indexOf(T t)
 {
@@ -137,7 +151,7 @@ template <typename T> bool jRray<T>::contains(const T &t)
 }
 template <typename T> jRray<T> jRray<T>::clone()
 {
-
+    return jRray<T>(this);
 }
 template <typename T> void jRray<T>::clear()
 {

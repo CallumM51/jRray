@@ -19,6 +19,7 @@ template<typename T> class jRray
     jRray();
     ~jRray();
 
+    jRray()
     //assignment operators
     jRray& operator=( const jRray& other );
 
