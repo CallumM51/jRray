@@ -130,17 +130,17 @@ template<typename T> int jRray<T>::capacity()
 
 }
 
-template<typename T> bool jRray<T>::addAll(int index, T []c)
+template<typename T> bool jRray<T>::addAll(const int &index, const T []c)
 {
 
 }
-template<typename T> bool jRray<T>::addAll(int index, std::vector<T> c)
+template<typename T> bool jRray<T>::addAll(const int &index, const std::vector<T> &c)
 {
 
 }
-template<typename T> bool jRray<T>::addAll(int index, jRray c)
+template<typename T> bool jRray<T>::addAll(const int &index, const jRray &c)
 {
-    
+
 }
 template<typename T> bool jRray<T>::addAll(const T &c[])
 {
