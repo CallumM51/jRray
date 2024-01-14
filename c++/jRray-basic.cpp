@@ -157,6 +157,9 @@ template <typename T> void jRray<T>::clear()
 {
     vec.clear();
 }
+template <typename T> T jRray<T>::get(const int &index){
+    return vec[index];
+}
 template <typename T> void jRray<T>::add(const int &index, const T &t)
 {
     vec.insert(vec.begin() + index, t);
