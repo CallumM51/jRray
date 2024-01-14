@@ -13,10 +13,11 @@
 #include <set>
 #include <functional>
 template <typename T> struct Comparator {
-    bool operator()(T x, T y) const {
-       return true;
+    bool operator()(int x, int y) const {
+       return x> y;
     }
 };
+
 template <typename T> struct Condition {
     bool operator()(T x) const {
        return true;
@@ -28,7 +29,7 @@ template<typename T> class jRray
         std::vector<T> vec;
     public:
     //constructors and destructors
-    jRray();
+    jRray<T>();
     ~jRray();
 
     jRray(jRray<T> &j);
@@ -477,6 +478,7 @@ template<typename T> class jRray
     *      void
     */
 };
-
+#include "jRray.cpp"
+#include "jRray-basic.cpp"
 
 #endif
