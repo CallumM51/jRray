@@ -198,20 +198,32 @@ template<typename T> bool jRray<T>::containsAll(const jRray &c)
 
 template<typename T> int jRray<T>::capacity()
 {
-
+    return vec.capacity();
 }
 
 template<typename T> bool jRray<T>::addAll(const int &index, const T &c)
 {
-
+    for(int i = 0; i < c.size(); i++)
+    {
+        vec.insert(vec.begin() + index, c[i])
+    }
+    return true;
 }
 template<typename T> bool jRray<T>::addAll(const int &index, const std::vector<T> &c)
 {
-
+    for(int i = 0; i < c.size(); i++)
+    {
+        vec.insert(vec.begin() + index, c[i])
+    }
+    return true;
 }
 template<typename T> bool jRray<T>::addAll(const int &index, const jRray &c)
 {
-
+    for(int i = 0; i < c.size(); i++)
+    {
+        vec.insert(vec.begin() + index, c.at(i))
+    }
+    return true;
 }
 template<typename T> bool jRray<T>::addAll(const T &c)
 {
