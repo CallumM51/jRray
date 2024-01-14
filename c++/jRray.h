@@ -94,10 +94,15 @@ template<typename T> class jRray
     //  lorem
 
     int capacity();
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* int capacity()
+    * extension of std::vector.capacity()
+    * see std::vector.capacity() documentation
+    * 
+    * Requires: 
+    *      none
+    * Returns: 
+    *      int
+    */
 
     void clear();
     //REQUIRES:
@@ -244,22 +249,37 @@ template<typename T> class jRray
     //  lorem
 
     bool removeAll(const jRray<T> &c);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* bool removeAll(const jRray &c)
+    * removes all elements from this jRray object matching an element found in the jRray argument "c"
+    * 
+    * Requires:
+    *      "c" is a valid jRray object
+    * Returns:
+    *      true if this jRray changed as a result of this call
+    *      false otherwise
+    */
 
     bool removeAll(const std::vector<T> &c);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* bool removeAll(const std::vector<T> &c)
+    * removes all elements from this jRray object matching an element found in the std::vector<T> argument "c"
+    * 
+    * Requires:
+    *      "c" is a valid std::vector<T> object
+    * Returns:
+    *      true if this jRray changed as a result of this call
+    *      false otherwise
+    */
 
     bool removeAll(const T &c);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* bool removeAll(const T &c)
+    * removes all elements from this jRray object matching the T argument "c"
+    * 
+    * Requires:
+    *      "c" is a valid T object
+    * Returns:
+    *      true if this jRray changed as a result of this call
+    *      false otherwise
+    */
 
     void removeAllElements();
     //REQUIRES:
@@ -280,40 +300,68 @@ template<typename T> class jRray
     //  lorem
 
     bool removeIf(const Condition<T> &func); //!!Maybe 
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* bool removeIf(const Condition<T> &func)
+    * removes all elements "i" from this jRray object where func(i) returns true
+    * 
+    * Requires:
+    *      "c" is a valid jRray object
+    * Returns:
+    *      true if a list item is removed
+    *      false otherwise
+    */
 
     void removeRange(const int &fromIndex,const int &toIndex);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* void removeRange(const int &fromIndex, const int &toIndex)
+    * removes all elements from this jRray from indexes fromIndex(inclusive) to toIndex(exclusive)
+    * 
+    * Requires:
+    *      0 <= fromIndex <= toIndex < this.vec.size()
+    * Returns:
+    *      void
+    */
 
     void replaceAll(const Condition<T> &func); //!!Same implementation as removeIf()
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* void replaceAll(UnaryOperator<E> operator)
+    * replaces all elements from this jRray object with the result of applying the UnaryOperator<E> "operator" to them
+    * 
+    * Requires:
+    *      "operator" is a valid UnaryOperator<E> object
+    * Returns:
+    *      void
+    */
 
     bool retainAll(const jRray &c);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* bool retainAll(const jRray &c)
+    * removes all elements from this jRray object except for those also found in the jRray argument "c"
+    * 
+    * Requires:
+    *      "c" is a valid jRray object
+    * Returns:
+    *      true if this jRray changed as a result of this call
+    *      false otherwise
+    */
 
     bool retainAll(const std::vector<T> &c);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* bool retainAll(const std::vector<T> &c)
+    * removes all elements from this jRray object except for those also found in the std::vector<T> argument "c"
+    * 
+    * Requires:
+    *      "c" is a valid std::vector<T> object
+    * Returns:
+    *      true if this jRray changed as a result of this call
+    *      false otherwise
+    */
 
     bool retainAll(const T &c);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* bool retainAll(const T &c)
+    * removes all elements from this jRray object except for those that match the T argument "c"
+    * 
+    * Requires:
+    *      "c" is a valid T object
+    * Returns:
+    *      true if this jRray changed as a result of this call
+    *      false otherwise
+    */
 
     T set(const int &index,const T &element);
     //REQUIRES:
@@ -371,16 +419,26 @@ template<typename T> class jRray
     //  lorem
 
     std::string toString();
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* std::string toString()
+    * return elements of jRRay object as a string
+    * elements are separated by ',' and wrapped by '[' and ']' e.g. temp = "[1,2,3]"
+    * 
+    * Requires: 
+    *      none
+    * Returns: 
+    *      std::string
+    */
 
     void trimToSize();
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* void trimToSize()
+    * extension of std::vector.shrink_to_fit()
+    * see std::vector.shrink_to_fit() documentation
+    * 
+    * Requires: 
+    *      none
+    * Returns: 
+    *      void
+    */
 };
 
 
