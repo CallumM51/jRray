@@ -1,5 +1,4 @@
 #include "jRray.h"
-#include <unordered_set>
 
 template <typename T> void jRray<T>::trimToSize()
 {
@@ -167,10 +166,10 @@ template<typename T> void jRray<T>::ensureCapacity(const int &minCapacity)
 
 }
 
-// template<typename T> enum<E> jRray::elements()
-// {
-
-// }
+template<typename T> std::set<T> jRray<T>::elements()
+{
+    
+}
 
 template<typename T> void jRray<T>::copyInto(T anArray[])
 {
@@ -277,17 +276,17 @@ template<typename T> bool jRray<T>::addAll(const jRray &c)
     return true;
 }
 
-// template<typename T> jRray& jRray<T>::operator=( const jRray& other )
-// {
-
-// }
+template<typename T> jRray<T>& jRray<T>::operator=( const jRray<T>& other )
+{
+    vec = other.vec;
+}
 
 template<typename T> jRray<T>::~jRray()
 {
-
+    vec.clear();
 }
 
 template<typename T> jRray<T>::jRray()
 {
-
+    vec = {};
 }

@@ -9,6 +9,8 @@
 #include <vector>
 #include <iterator>
 #include <string>
+#include <unordered_set>
+#include <set>
 template <typename T> struct Comparator {
     bool operator()(T x, T y) const {
        return true;
@@ -28,9 +30,8 @@ template<typename T> class jRray
     jRray();
     ~jRray();
 
-    jRray()
     //assignment operators
-    jRray& operator=( const jRray& other );
+    jRray<T>& operator=( const jRray<T>& other );
 
     //Methods
     bool add(const T &t);
@@ -45,7 +46,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool addAll(const jRray &c);
+    bool addAll(const jRray<T> &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -63,7 +64,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool addAll(const int &index, const jRray &c);
+    bool addAll(const int &index, const jRray<T> &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -99,7 +100,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    jRray clone();
+    jRray<T> clone();
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -111,7 +112,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool containsAll(const jRray &c);
+    bool containsAll(const jRray<T> &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -141,7 +142,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    enum<E> elements(); //!!Needs more research
+    std::set<T> elements(); //!!Needs more research
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -153,7 +154,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool equals(jRray j);
+    bool equals(jRray<T> j);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -237,7 +238,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool removeAll(const jRray &c);
+    bool removeAll(const jRray<T> &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
