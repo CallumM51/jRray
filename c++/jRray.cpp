@@ -91,15 +91,69 @@ template<typename T> void jRray<T>::setSize(const int &newSize)
 
 template<typename T> bool jRray<T>::retainAll(const T &c)
 {
+    std::vector<T> tmp;
 
+    for(T temp : this.vec)
+    {
+        bool keep = false;
+        
+        if(temp != cTemp)
+        {
+            tmp.push_back(temp);
+        }
+    }
+
+    this.removeAll(tmp);
 }
 template<typename T> bool jRray<T>::retainAll(const std::vector<T> &c)
 {
+    std::vector<T> tmp;
 
+    for(T temp : this.vec)
+    {
+        bool keep = false;
+
+        for(T cTemp : c)
+        {
+            if(temp == cTemp)
+            {
+                keep = true;
+                break;
+            }
+        }
+
+        if(!keep)
+        {
+            tmp.push_back(temp);
+        }
+    }
+
+    this.removeAll(tmp);
 }
 template<typename T> bool jRray<T>::retainAll(const jRray &c)
 {
+    std::vector<T> tmp;
 
+    for(T temp : this.vec)
+    {
+        bool keep = false;
+
+        for(T cTemp : c.vec)
+        {
+            if(temp == cTemp)
+            {
+                keep = true;
+                break;
+            }
+        }
+
+        if(!keep)
+        {
+            tmp.push_back(temp);
+        }
+    }
+
+    this.removeAll(tmp);
 }
 
 // template<typename T> void jRray<T>::replaceAll(UnaryOperator<E> operator)
@@ -315,10 +369,10 @@ template<typename T> bool jRray<T>::addAll(const jRray &c)
     return true;
 }
 
-// template<typename T> jRray& jRray<T>::operator=( const jRray& other )
-// {
+template<typename T> jRray<T> jRray<T>::operator=( const jRray<T> &other )
+{
 
-// }
+}
 
 template<typename T> jRray<T>::~jRray()
 {
