@@ -36,7 +36,7 @@ template <typename T> bool jRray<T>::removeElement(const T &t)
     return false;
 }
 
-template <typename T> T jRray<T>::remove(const int &index)
+template <typename T> T jRray<T>::removeAt(const int &index)
 {
     T temp = vec[index];
     vec.erase(vec.begin() + index);

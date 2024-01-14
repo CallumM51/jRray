@@ -231,7 +231,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    T remove(const int &index);
+    T removeAt(const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
