@@ -52,7 +52,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool addAll(T c[]);
+    bool addAll(const T &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -70,7 +70,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool addAll(const int &index, T []c);
+    bool addAll(const int &index, const T &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -118,7 +118,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool containsAll(const T c[]);
+    bool containsAll(const T &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -142,7 +142,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    void ensureCapacity(int minCapacity);
+    void ensureCapacity(const int &minCapacity);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -244,7 +244,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool removeAll(const T c[]);
+    bool removeAll(const T &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
