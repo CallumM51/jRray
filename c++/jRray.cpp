@@ -22,11 +22,26 @@ template <typename T> std::string jRray<T>::toString()
 
 template <typename T> T jRray<T>::toArray()
 {
+    std::array<T, vec.size()> arr;
 
+    for(int i = 0; i < vec.size(); i++) {
+        arr[i] = vec[i]l
+    }
+
+    return arr;
 }
-template <typename T> T jRray<T>::toArray(const T &a)
-{
 
+template <typename T>
+template <typename A>
+T jRray<T>::toArray(const A &a)
+{
+    std::array<A, vec.size()> arr;
+
+    for(int i = 0; i < vec.size(); i++) {
+        arr[i] = vec[i]l
+    }
+
+    return arr;
 }
 
 template<typename T> std::vector<T> jRray<T>::subVector(const int &fromIndex,const int &toIndex)
@@ -190,7 +205,7 @@ template<typename T> bool jRray<T>::removeIf(const Condition<T> &func)
 
 template<typename T> void jRray<T>::removeAllElements()
 {
-
+    vec.clear();
 }
 
 // template<typename T> bool jRray<T>::removeAll(const T &c[])
@@ -296,6 +311,10 @@ template<typename T> std::set<T> jRray<T>::elements()
 
 template<typename T> void jRray<T>::copyInto(T anArray[])
 {
+    if(anArray == nullptr) {
+        throw std::runtime_error("nullptr passed as argument to copyInto");
+    }
+
     if (std::size(anArray) > vec.size()) {
         for(int i = 0; i < vec.size(); i++)
         {

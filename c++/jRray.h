@@ -363,7 +363,8 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    T toArray(const T &a);
+    template <typename A>
+    T toArray(const A &a);
     //REQUIRES:
     //  lorem
     // PROMISES:
