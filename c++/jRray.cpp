@@ -4,6 +4,15 @@ template <typename T> void jRray<T>::trimToSize()
 {
     vec.shrink_to_fit();
 }
+/* void trimToSize()
+ * extension of std::vector.shrink_to_fit()
+ * see std::vector.shrink_to_fit() documentation
+ * 
+ * Requires: 
+ *      none
+ * Returns: 
+ *      void
+ */
 
 template <typename T> std::string jRray<T>::toString()
 {
@@ -19,6 +28,15 @@ template <typename T> std::string jRray<T>::toString()
     temp.append("]");
     return temp;
 }
+/* std::string toString()
+ * return elements of jRRay object as a string
+ * elements are separated by ',' and wrapped by '[' and ']' e.g. temp = "[1,2,3]"
+ * 
+ * Requires: 
+ *      none
+ * Returns: 
+ *      std::string
+ */
 
 template <typename T> T jRray<T>::toArray()
 {
@@ -117,6 +135,15 @@ template<typename T> void jRray<T>::setSize(const int &newSize)
 //     this.removeAll(tmp);
 //     return true;
 // }
+/* bool retainAll(const T &c)
+ * removes all elements from this jRray object except for those that match the T argument "c"
+ * 
+ * Requires:
+ *      "c" is a valid T object
+ * Returns:
+ *      true if this jRray changed as a result of this call
+ *      false otherwise
+ */
 template<typename T> bool jRray<T>::retainAll(const std::vector<T> &c)
 {
      std::unordered_set<T> set;
@@ -139,6 +166,15 @@ template<typename T> bool jRray<T>::retainAll(const std::vector<T> &c)
     vec = newVec;
     return changed;
 }
+/* bool retainAll(const std::vector<T> &c)
+ * removes all elements from this jRray object except for those also found in the std::vector<T> argument "c"
+ * 
+ * Requires:
+ *      "c" is a valid std::vector<T> object
+ * Returns:
+ *      true if this jRray changed as a result of this call
+ *      false otherwise
+ */
 template<typename T> bool jRray<T>::retainAll(const jRray &c)
 {
      std::unordered_set<T> set;
@@ -161,6 +197,15 @@ template<typename T> bool jRray<T>::retainAll(const jRray &c)
     vec = newVec;
     return changed;
 }
+/* bool retainAll(const jRray &c)
+ * removes all elements from this jRray object except for those also found in the jRray argument "c"
+ * 
+ * Requires:
+ *      "c" is a valid jRray object
+ * Returns:
+ *      true if this jRray changed as a result of this call
+ *      false otherwise
+ */
 
 template<typename T> void jRray<T>::replaceAll(const Condition<T> &func)
 {
@@ -177,6 +222,14 @@ template<typename T> void jRray<T>::replaceAll(const Condition<T> &func)
     }
     vec.resize(current);
 }
+/* void replaceAll(UnaryOperator<E> operator)
+ * replaces all elements from this jRray object with the result of applying the UnaryOperator<E> "operator" to them
+ * 
+ * Requires:
+ *      "operator" is a valid UnaryOperator<E> object
+ * Returns:
+ *      void
+ */
 
 template<typename T> void jRray<T>::removeRange(const int &fromIndex, const int &toIndex)
 {
@@ -187,7 +240,14 @@ template<typename T> void jRray<T>::removeRange(const int &fromIndex, const int 
         vec[i] = vec[i + range];
     }
 }
-
+/* void removeRange(const int &fromIndex, const int &toIndex)
+ * removes all elements from this jRray from indexes fromIndex(inclusive) to toIndex(exclusive)
+ * 
+ * Requires:
+ *      0 <= fromIndex <= toIndex < this.vec.size()
+ * Returns:
+ *      void
+ */
 template<typename T> bool jRray<T>::removeIf(const Condition<T> &func)
 {
     int current = 0;
@@ -204,6 +264,15 @@ template<typename T> bool jRray<T>::removeIf(const Condition<T> &func)
     vec.resize(current);
     return true;
 }
+/* bool removeIf(const Condition<T> &func)
+ * removes all elements "i" from this jRray object where func(i) returns true
+ * 
+ * Requires:
+ *      "c" is a valid jRray object
+ * Returns:
+ *      true if a list item is removed
+ *      false otherwise
+ */
 
 template<typename T> void jRray<T>::removeAllElements()
 {
@@ -232,6 +301,15 @@ template<typename T> void jRray<T>::removeAllElements()
 //     vec = newVec;
 //     return changed;
 // }
+/* bool removeAll(const T &c)
+ * removes all elements from this jRray object matching the T argument "c"
+ * 
+ * Requires:
+ *      "c" is a valid T object
+ * Returns:
+ *      true if this jRray changed as a result of this call
+ *      false otherwise
+ */
 template<typename T> bool jRray<T>::removeAll(const std::vector<T> &c)
 {
     std::unordered_set<T> set;
@@ -254,6 +332,15 @@ template<typename T> bool jRray<T>::removeAll(const std::vector<T> &c)
     vec = newVec;
     return changed;
 }
+/* bool removeAll(const std::vector<T> &c)
+ * removes all elements from this jRray object matching an element found in the std::vector<T> argument "c"
+ * 
+ * Requires:
+ *      "c" is a valid std::vector<T> object
+ * Returns:
+ *      true if this jRray changed as a result of this call
+ *      false otherwise
+ */
 template<typename T> bool jRray<T>::removeAll(const jRray &c)
 {
     std::unordered_set<T> set;
@@ -276,7 +363,15 @@ template<typename T> bool jRray<T>::removeAll(const jRray &c)
     vec = newVec;
     return changed;
 }
-
+/* bool removeAll(const jRray &c)
+ * removes all elements from this jRray object matching an element found in the jRray argument "c"
+ * 
+ * Requires:
+ *      "c" is a valid jRray object
+ * Returns:
+ *      true if this jRray changed as a result of this call
+ *      false otherwise
+ */
 
 template<typename T> int jRray<T>::hashCode()
 {
@@ -370,6 +465,15 @@ template<typename T> int jRray<T>::capacity()
 {
     return vec.capacity();
 }
+/* int capacity()
+ * extension of std::vector.capacity()
+ * see std::vector.capacity() documentation
+ * 
+ * Requires: 
+ *      none
+ * Returns: 
+ *      int
+ */
 
 // template<typename T> bool jRray<T>::addAll(const int &index, const T &c)
 // {
