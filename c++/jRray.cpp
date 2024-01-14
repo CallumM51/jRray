@@ -22,10 +22,11 @@ template <typename T> std::string jRray<T>::toString()
 
 template <typename T> T jRray<T>::toArray()
 {
-    std::array<T, vec.size()> arr;
+    const size_t size = vec.size();
+    std::array<T, size> arr;
 
     for(int i = 0; i < vec.size(); i++) {
-        arr[i] = vec[i]l
+        arr[i] = vec[i];
     }
 
     return arr;
@@ -35,10 +36,11 @@ template <typename T>
 template <typename A>
 T jRray<T>::toArray(const A &a)
 {
-    std::array<A, vec.size()> arr;
-
+    const size_t size = vec.size();
+    std::array<A, size> arr;
+    A[size];
     for(int i = 0; i < vec.size(); i++) {
-        arr[i] = vec[i]l
+        arr[i] = vec[i];
     }
 
     return arr;
@@ -369,38 +371,50 @@ template<typename T> int jRray<T>::capacity()
     return vec.capacity();
 }
 
-template<typename T> bool jRray<T>::addAll(const int &index, const T &c)
-{
-    for(int i = 0; i < c.size(); i++)
-    {
-        vec.insert(vec.begin() + index, c[i]);
-    }
-    return true;
-}
+// template<typename T> bool jRray<T>::addAll(const int &index, const T &c)
+// {
+//     for(int i = 0; i < c.size(); i++)
+//     {
+//         vec.insert(vec.begin() + index, c[i]);
+//     }
+//     return true;
+// }
 template<typename T> bool jRray<T>::addAll(const int &index, const std::vector<T> &c)
 {
+    std::vector<T> tmp(vec);
+    tmp.resize(index);
     for(int i = 0; i < c.size(); i++)
     {
-        vec.insert(vec.begin() + index, c[i]);
+        tmp.push_back(c[i]);
     }
+    for(int i = index; i < vec.size(); i++)
+    {
+        tmp.push_back(vec[i]);
+    }    
     return true;
 }
 template<typename T> bool jRray<T>::addAll(const int &index, const jRray &c)
 {
+    std::vector<T> tmp(vec);
+    tmp.resize(index);
     for(int i = 0; i < c.size(); i++)
     {
-        vec.insert(vec.begin() + index, c.at(i));
+        tmp.push_back(c.at(i));
     }
+    for(int i = index; i < vec.size(); i++)
+    {
+        tmp.push_back(vec[i]);
+    }    
     return true;
 }
-template<typename T> bool jRray<T>::addAll(const T &c)
-{
-    for(int i = 0; i < c.size(); i++)
-        {
-            vec.push_back(c[i]);
-        }
-    return true;
-}
+// template<typename T> bool jRray<T>::addAll(const T &c)
+// {
+//     for(int i = 0; i < c.size(); i++)
+//         {
+//             vec.push_back(c[i]);
+//         }
+//     return true;
+// }
 template<typename T> bool jRray<T>::addAll(const std::vector<T> &c)
 {
     for(int i = 0; i < c.size(); i++)
