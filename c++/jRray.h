@@ -301,22 +301,35 @@ template<typename T> class jRray
     */
 
     void removeAllElements();
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* void removeAllElements()
+    * removes all elements from this jRray
+    * 
+    * Requires:
+    *      void
+    * Returns:
+    *      void
+    */
 
     bool removeElement(const T &t);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* void removeElement(const T &t)
+    * removes first element from this jRray matching "t"
+    * 
+    * Requires:
+    *      t is a valid T object
+    * Returns:
+    *      true if element is removed
+    *      false otherwise
+    */
 
     void removeElementAt(const int &index);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* void removeElementAt(const int &index)
+    * removes element from this jRray located at "index"
+    * 
+    * Requires:
+    *      index is a valid int
+    * Returns:
+    *      void
+    */
 
     bool removeIf(const Condition<T> &func); //!!Maybe 
     /* bool removeIf(const Condition<T> &func)
@@ -334,7 +347,7 @@ template<typename T> class jRray
     * removes all elements from this jRray from indexes fromIndex(inclusive) to toIndex(exclusive)
     * 
     * Requires:
-    *      0 <= fromIndex <= toIndex < this.vec.size()
+    *      0 <= "fromIndex" <= "toIndex" < this.vec.size()
     * Returns:
     *      void
     */
@@ -389,10 +402,15 @@ template<typename T> class jRray
     //  lorem
 
     void setElementAt(const T &obj,const int &index);
-    //REQUIRES:
-    //  lorem
-    // PROMISES:
-    //  lorem
+    /* bool retainAll(const T &c)
+    * replaces element in this jRray object at "index" with "obj"
+    * 
+    * Requires:
+    *      "obj" is a valid T object
+    *      "index" is a valid int, 0 <= index < this.vec.size()
+    * Returns:
+    *      void
+    */
 
     void setSize(const int &newSize);
     //REQUIRES:
