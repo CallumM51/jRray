@@ -1,18 +1,19 @@
 #include "jRray.h"
 #include <unordered_set>
-void jRray<typename T>::trimToSize()
+
+template <typename T> void jRray<T>::trimToSize()
 {
 
 }
-std::string jRray::toString()
+template <typename T> std::string jRray<T>::toString()
 {
 
 }
-T[] jRray::toArray(T a[])
+template <typename T> T jRray<T>::toArray()
 {
 
 }
-T[] jRray::toArray()
+template <typename T> T jRray<T>::toArray(const T &a)
 {
 
 }
@@ -20,7 +21,7 @@ template<typename T> std::vector<T> jRray<T>::subVector(const int &fromIndex,con
 {
     return std::vector<T>(vec.begin() + fromIndex, vec.begin() + toIndex);
 }
-template<typename T> jRray<T>::subJrray(int fromIndex, int toIndex)
+template<typename T> jRray<T> jRray<T>::subJrray(int fromIndex, int toIndex)
 {
     jRray temp;
     for(int i = fromIndex; i < toIndex; i++)
@@ -61,20 +62,20 @@ template<typename T> void jRray<T>::sort(Comparator<? super E> c)
 
 }
 
-template<typename T> void jRray<T>::setSize(int newSize)
+template<typename T> void jRray<T>::setSize(const int &newSize)
 {
 
 }
 
-template<typename T> bool jRray<T>::retainAll(T c[])
+template<typename T> bool jRray<T>::retainAll(const T &c)
 {
 
 }
-template<typename T> bool jRray<T>::retainAll(std::vector<T> c)
+template<typename T> bool jRray<T>::retainAll(const std::vector<T> &c)
 {
 
 }
-template<typename T> void jRray<T>::retainAll(jRray c)
+template<typename T> bool jRray<T>::retainAll(const jRray &c)
 {
 
 }

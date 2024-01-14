@@ -294,7 +294,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool retainAll(const T c[]);
+    bool retainAll(const T &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -312,7 +312,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    setSize(const int &newSize);
+    void setSize(const int &newSize);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -342,13 +342,13 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    T[] toArray();
+    T toArray();
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    T[] toArray(T a[]);
+    T toArray(const T &a);
     //REQUIRES:
     //  lorem
     // PROMISES:
