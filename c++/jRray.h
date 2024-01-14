@@ -1,9 +1,10 @@
 /*
- * jRray for c++ header file
- * all rights reserved to the jRray team
- * visit https://github.com/CallumM51/jRray for more
+ * jRray extended std::vector functionality class for c++ Header File
+ * All rights reserved to the jRray team
+ * Visit https://github.com/CallumM51/jRray for more information
  */
 
+//Defines and Includes
 #ifndef JRRAY_H
 #define JRRAY_H
 #include <vector>
@@ -12,6 +13,8 @@
 #include <unordered_set>
 #include <set>
 #include <functional>
+
+//Templates
 template <typename T> struct Comparator {
     bool operator()(T x, T y) const {
        return true;
@@ -22,39 +25,33 @@ template <typename T> struct Condition {
        return true;
     }
 };
+
+//Class Definition
 template<typename T> class jRray
 {
     private:
         std::vector<T> vec;
     public:
-    //constructors and destructors
+    //Constructors and Destructors
     jRray();
-    ~jRray();
-
     jRray(jRray<T> &j);
     jRray(std::vector<T> &v);
     jRray(T t[], int size);
     jRray(int size);
-    //assignment operators
-    jRray<T>& operator=( const jRray<T>& other );
+    ~jRray();
 
+    //Assignment Operators
+    jRray<T>& operator=( const jRray<T>& other );
     T& operator[](const int& index);
 
     //Iterators
     typename std::vector<T>::iterator begin();
-
     typename std::vector<T>::iterator rbegin();
-
     typename std::vector<T>::iterator end();
-
     typename std::vector<T>::iterator rend();
-
     typename std::vector<T>::const_iterator cbegin();
-
     typename std::vector<T>::const_iterator crbegin();
-
     typename std::vector<T>::const_iterator cend();
-
     typename std::vector<T>::const_iterator crend();
     
     //Methods
