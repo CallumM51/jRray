@@ -1,4 +1,5 @@
 #include "jRray.h"
+template<class T>
 void jRray::trimToSize()
 {
 
