@@ -64,7 +64,10 @@ template<typename T> void jRray<T>::sort(Comparator<? super E> c)
 
 template<typename T> void jRray<T>::setSize(const int &newSize)
 {
-
+    if(newSize < 0) {
+        throw ArrayIndexOutOfBoundsException;
+    }
+    vec.resize(newSize);
 }
 
 template<typename T> bool jRray<T>::retainAll(const T &c)
