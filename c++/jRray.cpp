@@ -170,10 +170,22 @@ template<typename T> void jRray<T>::removeRange(const int &fromIndex, const int 
     }
 }
 
-// template<typename T> bool jRray<T>::removeIf(Predicate<? super E> filter)
-// {
-
-// }
+template<typename T> bool jRray<T>::removeIf(const Condition<T> &func)
+{
+    int current = 0;
+    for(int i = 0; i < vec.size(); i++)
+    {
+        if(func(vec[i]))
+        {
+            current++; 
+            Temp temp = vec[i];
+            vec[i] = vec[current];
+            vec[current] = temp;
+        }
+    }
+    vec.resize(current);
+    return true;
+}
 
 template<typename T> void jRray<T>::removeAllElements()
 {

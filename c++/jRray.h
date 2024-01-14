@@ -30,6 +30,12 @@ template<typename T> class jRray
     jRray();
     ~jRray();
 
+<<<<<<< Updated upstream
+=======
+    jRray(jRray<T> &j);
+    jRray(std::vector<T> &v);
+    jRray(T t[], int size);
+>>>>>>> Stashed changes
     //assignment operators
     jRray<T>& operator=( const jRray<T>& other );
 
