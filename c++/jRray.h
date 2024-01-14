@@ -9,7 +9,16 @@
 #include <vector>
 #include <iterator>
 #include <string>
-
+template <typename T> struct Comparator {
+    bool operator()(T x, T y) const {
+       return true;
+    }
+};
+template <typename T> struct Condition {
+    bool operator()(T x) const {
+       return true;
+    }
+};
 template<typename T> class jRray
 {
     private:
@@ -48,7 +57,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool addAll(T c[]);
+    bool addAll(const T &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -66,7 +75,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool addAll(const int &index, T []c);
+    bool addAll(const int &index, const T &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -114,7 +123,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool containsAll(const T c[]);
+    bool containsAll(const T &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -138,7 +147,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    void ensureCapacity(int minCapacity);
+    void ensureCapacity(const int &minCapacity);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -156,7 +165,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    void forEach(Consumer<? super T> action); //!!Most likely remove
+    void forEach(const std::function<void(T)> func); 
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -240,7 +249,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool removeAll(const T c[]);
+    bool removeAll(const T &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -324,7 +333,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    void sort(Comparator<? super E> c); //!!Needs more research
+    void sort(const Comparator<T> &c); //!!Needs more research
     //REQUIRES:
     //  lorem
     // PROMISES:

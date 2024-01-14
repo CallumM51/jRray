@@ -5,6 +5,7 @@ template <typename T> void jRray<T>::trimToSize()
 {
     vec.shrink_to_fit();
 }
+
 template <typename T> std::string jRray<T>::toString()
 {
     std::string temp = "[";
@@ -19,6 +20,7 @@ template <typename T> std::string jRray<T>::toString()
     temp.append("]");
     return temp;
 }
+
 template <typename T> T jRray<T>::toArray()
 {
 
@@ -27,11 +29,13 @@ template <typename T> T jRray<T>::toArray(const T &a)
 {
 
 }
+
 template<typename T> std::vector<T> jRray<T>::subVector(const int &fromIndex,const int &toIndex)
 {
     return std::vector<T>(vec.begin() + fromIndex, vec.begin() + toIndex);
 }
-template<typename T> jRray<T> jRray<T>::subJrray(int fromIndex, int toIndex)
+
+template<typename T> jRray<T> jRray<T>::subJrray(const int &fromIndex, const int &toIndex)
 {
     jRray temp;
     for(int i = fromIndex; i < toIndex; i++)
@@ -40,36 +44,41 @@ template<typename T> jRray<T> jRray<T>::subJrray(int fromIndex, int toIndex)
     }   
     return temp;
 }
-void quicksort(std::vector<T> &vec, const int &left, const int &right)
+template<typename T> void quicksort(std::vector<T> &vec, const int &left, const int &right)
 {
-    int i = left, j = right;
-    T tmp;
-    T pivot = vec[left];
-    while(i <= j)
-    {
-        while(vec[i] < pivot)
-            i++;
-        while(vec[j] > pivot)
-            j--;
-        if(i <= j)
+    if (left + 7 < right){
+        for(int i = left + 1; i < right; i++)
         {
-            tmp = vec[i];
-            vec[i] = vec[j];
-            vec[j] = tmp;
-            i++;
-            j--;
+            for(int j = i; j > left && compare(vec[j-1], vec[j]); j-)
+            {
+                    T temp = vec[i];
+                    vec[i] = vec[j];
+                    vec[j] = temp;
+            }
+        }
+        return;
+    }
+    T pivot = vec[left];
+    int less = left;
+    for(int i = left + 1; i < right; i++)
+    {
+        if(compare(pivot, vec[i]))
+        {
+            less++;
+            T temp = vec[i];
+            vec[i] = vec[less];
+            vec[less] = temp;
         }
     }
-    if(left < j)
-        quicksort(vec, left, j);
-    if(i < right)
-        quicksort(vec, i, right);
-    
-
+    T temp = vec[left];
+    vec[left] = vec[less];
+    vec[less] = temp;
+    quicksort(vec, left, less, compare);
+    quicksort(vec, less + 1, right, compare);
 }
-template<typename T> void jRray<T>::sort(Comparator<? super E> c)
+template<typename T> void jRray<T>::sort(const Comparator<T> &c)
 {
-
+    quicksort(vec, 0, vec.size(), c);
 }
 
 template<typename T> void jRray<T>::setSize(const int &newSize)
@@ -92,11 +101,13 @@ template<typename T> bool jRray<T>::retainAll(const jRray &c)
 {
 
 }
-template<typename T> void jRray<T>:replaceAll(UnaryOperator<E> operator)
-{
 
-}
-template<typename T> void jRray<T>::removeRange(int fromIndex, int toIndex)
+// template<typename T> void jRray<T>::replaceAll(UnaryOperator<E> operator)
+// {
+
+// }
+
+template<typename T> void jRray<T>::removeRange(const int &fromIndex, const int &toIndex)
 {
     const int size = vec.size();
     const int range = toIndex - fromIndex;
@@ -105,32 +116,32 @@ template<typename T> void jRray<T>::removeRange(int fromIndex, int toIndex)
         vec[i] = vec[i + range];
     }
 }
-template<typename T> bool jRray<T>::removeIf(Predicate<? super E> filter)
-{
 
-}
+// template<typename T> bool jRray<T>::removeIf(Predicate<? super E> filter)
+// {
+
+// }
 
 template<typename T> void jRray<T>::removeAllElements()
 {
 
 }
-template<typename T> bool jRray<T>::removeAll(T c[])
+
+template<typename T> bool jRray<T>::removeAll(const T &c)
 {
 
 }
-template<typename T> bool jRray<T>removeAll(std::vector<T> c)
+template<typename T> bool jRray<T>::removeAll(const std::vector<T> &c)
 {
 
 }
-template<typename T> bool jRray<T>::removeAll(jRray c)
+template<typename T> bool jRray<T>::removeAll(const jRray &c)
 {
 
 }
 
 
-
-
-template<typename T> int64_t jRray<T>::hashCode()
+template<typename T> int jRray<T>::hashCode()
 {
     int64_t hash = vec.size();
     for(int i = 0; i < vec.size(); i++)
@@ -139,28 +150,39 @@ template<typename T> int64_t jRray<T>::hashCode()
         hash |= vec[i] << 7;
         hash += vec[i];
     }
-    return hash
+    return hash;
 }
 
-template<typename T> void jRray<T>::forEach(Consumer<? super T> action)
+template<typename T> void jRray<T>::forEach(const std::function<void(int)> func)
 {
-
+    for(int i = 0; i < vec.size(); i++)
+    {
+        func(vec[i]);
+    }
 }
+
 
 template<typename T> void jRray<T>::ensureCapacity(const int &minCapacity)
 {
 
 }
-enum<E> jRray::elements()
-{
 
-}
+// template<typename T> enum<E> jRray::elements()
+// {
+
+// }
 
 template<typename T> void jRray<T>::copyInto(T anArray[])
 {
-
+    if (std::size(anArray) > vec.size()) {
+        for(int i = 0; i < vec.size(); i++)
+        {
+            anArray[i] = vec[i];
+        }
+    }
 }
-template<typename T> bool jRray<T>::containsAll(T c[])
+
+template<typename T> bool jRray<T>::containsAll(const T &c)
 {
     std::unordered_set<T> set;
     for(int i = 0; i < vec.size(); i++)
@@ -184,7 +206,7 @@ template<typename T> bool jRray<T>::containsAll(const std::vector<T> &c)
     }
     return true;
 }
-template<typename T> bool jRray<T>::containsAll(jRray c)
+template<typename T> bool jRray<T>::containsAll(const jRray &c)
 {
     std::unordered_set<T> set;
     for(int i = 0; i < vec.size(); i++)
@@ -201,25 +223,36 @@ template<typename T> bool jRray<T>::containsAll(jRray c)
     return true;
 }
 
-
 template<typename T> int jRray<T>::capacity()
 {
-
+    return vec.capacity();
 }
 
-template<typename T> bool jRray<T>::addAll(const int &index, const T []c)
+template<typename T> bool jRray<T>::addAll(const int &index, const T &c)
 {
-
+    for(int i = 0; i < c.size(); i++)
+    {
+        vec.insert(vec.begin() + index, c[i])
+    }
+    return true;
 }
 template<typename T> bool jRray<T>::addAll(const int &index, const std::vector<T> &c)
 {
-
+    for(int i = 0; i < c.size(); i++)
+    {
+        vec.insert(vec.begin() + index, c[i])
+    }
+    return true;
 }
 template<typename T> bool jRray<T>::addAll(const int &index, const jRray &c)
 {
-
+    for(int i = 0; i < c.size(); i++)
+    {
+        vec.insert(vec.begin() + index, c.at(i))
+    }
+    return true;
 }
-template<typename T> bool jRray<T>::addAll(const T &c[])
+template<typename T> bool jRray<T>::addAll(const T &c)
 {
     for(int i = 0; i < c.size(); i++)
         {
@@ -235,7 +268,7 @@ template<typename T> bool jRray<T>::addAll(const std::vector<T> &c)
     }
     return true;
 }
-template<typename T> bool jRray<T>::addAll(jRray c)
+template<typename T> bool jRray<T>::addAll(const jRray &c)
 {
     for(int i = 0; i < c.size(); i++)
     {
@@ -244,14 +277,16 @@ template<typename T> bool jRray<T>::addAll(jRray c)
     return true;
 }
 
-jRray& jRray::operator=( const jRray& other )
-{
+// template<typename T> jRray& jRray<T>::operator=( const jRray& other )
+// {
 
-}
+// }
+
 template<typename T> jRray<T>::~jRray()
 {
 
 }
+
 template<typename T> jRray<T>::jRray()
 {
 
