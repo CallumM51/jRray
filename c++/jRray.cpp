@@ -44,40 +44,46 @@ template<typename T> jRray<T> jRray<T>::subJrray(const int &fromIndex, const int
 {
     return jRray<T>(std::vector<T>(vec.begin() + fromIndex, vec.begin() + toIndex));
 }
+template<typename T> void quicksort(std::vector<T> &vec, const int &left, const int &right, const Comparator<T> &compare);
 template<typename T> void quicksort(std::vector<T> &vec, const int &left, const int &right, const Comparator<T> &compare)
 {
-    if (left + 7 < right){
+    if (left + 2 > right){
+        return;
+    }
+    if (left + 7 > right){
+    
         for(int i = left + 1; i < right; i++)
         {
             for(int j = i; j > left && compare(vec[j-1], vec[j]); j--)
             {
-                    T temp = vec[i];
-                    vec[i] = vec[j];
+                T temp = vec[j-1];
+                    vec[j-1] = vec[j];
                     vec[j] = temp;
             }
         }
+     
         return;
     }
-    T pivot = vec[left];
-    int less = left;
-    for(int i = left + 1; i < right; i++)
-    {
-        if(compare(pivot, vec[i]))
-        {
-            less++;
+    const T pivot = vec[left];
+    int i = left;
+    for(int index = left+ 1; index < right; index++){
+        if(compare(pivot, vec[index])){
+            i++;
             T temp = vec[i];
-            vec[i] = vec[less];
-            vec[less] = temp;
+            vec[i] = vec[index];
+            vec[index] = temp;
         }
     }
-    T temp = vec[left];
-    vec[left] = vec[less];
-    vec[less] = temp;
-    quicksort(vec, left, less, compare);
-    quicksort(vec, less + 1, right, compare);
+    vec[left] = vec[i];
+    vec[i] = pivot;
+    quicksort(vec, left, i, compare);
+    quicksort(vec, i + 1, right, compare);
+
+
 }
 template<typename T> void jRray<T>::sort(const Comparator<T> &c)
 {
+
     quicksort(vec, 0, vec.size(), c);
 }
 

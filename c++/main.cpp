@@ -1,5 +1,5 @@
 #include "jRray.h"
-#include <iostream>
+
 int main(){
     jRray<int> a;
     for(int i = 0; i < 10; i++)
