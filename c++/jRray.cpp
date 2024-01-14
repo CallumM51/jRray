@@ -161,7 +161,12 @@ template<typename T> void jRray<T>::ensureCapacity(const int &minCapacity)
 
 template<typename T> void jRray<T>::copyInto(T anArray[])
 {
-
+    if (std::size(anArray) > vec.size()) {
+        for(int i = 0; i < vec.size(); i++)
+        {
+            anArray[i] = vec[i];
+        }
+    }
 }
 
 template<typename T> bool jRray<T>::containsAll(const T &c)
