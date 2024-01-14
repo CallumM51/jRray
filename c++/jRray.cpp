@@ -127,6 +127,7 @@ template<typename T> bool jRray<T>::removeAll(const jRray &c)
 
 }
 
+
 template<typename T> int jRray<T>::hashCode()
 {
     int64_t hash = vec.size();
@@ -136,13 +137,17 @@ template<typename T> int jRray<T>::hashCode()
         hash |= vec[i] << 7;
         hash += vec[i];
     }
-    return hash
+    return hash;
 }
 
-// template<typename T> void jRray<T>::forEach(Consumer<? super T> action)
-// {
+template<typename T> void jRray<T>::forEach(const std::function<void(int)> func)
+{
+    for(int i = 0; i < vec.size(); i++)
+    {
+        func(vec[i]);
+    }
+}
 
-// }
 
 template<typename T> void jRray<T>::ensureCapacity(const int &minCapacity)
 {

@@ -14,6 +14,11 @@ template <typename T> struct Comparator {
        return true;
     }
 };
+template <typename T> struct Condition {
+    bool operator()(T x) const {
+       return true;
+    }
+};
 template<typename T> class jRray
 {
     private:
@@ -160,7 +165,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    void forEach(Consumer<? super T> action); //!!Most likely remove
+    void forEach(const std::function<void(T)> func); 
     //REQUIRES:
     //  lorem
     // PROMISES:
