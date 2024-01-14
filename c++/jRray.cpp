@@ -1,6 +1,5 @@
 #include "jRray.h"
-template<class T>
-void jRray::trimToSize()
+void jRray<typename T>::trimToSize()
 {
 
 }
@@ -16,11 +15,11 @@ T[] jRray::toArray()
 {
 
 }
-std::vector<T> jRray::subVector(const int &fromIndex,const int &toIndex)
+template<typename T> std::vector<T> jRray<T>::subVector(const int &fromIndex,const int &toIndex)
 {
     return std::vector<T>(vec.begin() + fromIndex, vec.begin() + toIndex);
 }
-jRray jRray::subJrray(int fromIndex, int toIndex)
+template<typename T> jRray<T>::subJrray(int fromIndex, int toIndex)
 {
     jRray temp;
     for(int i = fromIndex; i < toIndex; i++)
@@ -29,33 +28,33 @@ jRray jRray::subJrray(int fromIndex, int toIndex)
     }   
     return temp;
 }
-void jRray::sort(Comparator<? super E> c)
+template<typename T> void jRray<T>::sort(Comparator<? super E> c)
 {
 
 }
 
-setSize(int newSize)
+template<typename T> void jRray<T>::setSize(int newSize)
 {
 
 }
 
-bool jRray::retainAll(T c[])
+template<typename T> bool jRray<T>::retainAll(T c[])
 {
 
 }
-bool jRray::retainAll(std::vector<T> c)
+template<typename T> bool jRray<T>::retainAll(std::vector<T> c)
 {
 
 }
-bool jRray::retainAll(jRray c)
+template<typename T> void jRray<T>::retainAll(jRray c)
 {
 
 }
-void jRray::replaceAll(UnaryOperator<E> operator)
+template<typename T> void jRray<T>:replaceAll(UnaryOperator<E> operator)
 {
 
 }
-void jRray::removeRange(int fromIndex, int toIndex)
+template<typename T> void jRray<T>::removeRange(int fromIndex, int toIndex)
 {
     const int size = vec.size();
     const int range = toIndex - fromIndex;
@@ -64,42 +63,42 @@ void jRray::removeRange(int fromIndex, int toIndex)
         vec[i] = vec[i + range];
     }
 }
-bool jRray::removeIf(Predicate<? super E> filter)
+template<typename T> bool jRray<T>::removeIf(Predicate<? super E> filter)
 {
 
 }
 
-void jRray::removeAllElements()
+template<typename T> void jRray<T>::removeAllElements()
 {
 
 }
-bool jRray::removeAll(T c[])
+template<typename T> bool jRray<T>::removeAll(T c[])
 {
 
 }
-bool jRray::removeAll(std::vector<T> c)
+template<typename T> bool jRray<T>removeAll(std::vector<T> c)
 {
 
 }
-bool jRray::removeAll(jRray c)
-{
-
-}
-
-
-
-
-int jRray::hashCode()
+template<typename T> bool jRray<T>::removeAll(jRray c)
 {
 
 }
 
-void jRray::forEach(Consumer<? super T> action)
+
+
+
+template<typename T> int jRray<T>::hashCode()
 {
 
 }
 
-void jRray::ensureCapacity(const int &minCapacity)
+template<typename T> void jRray<T>::forEach(Consumer<? super T> action)
+{
+
+}
+
+template<typename T> void jRray<T>::ensureCapacity(const int &minCapacity)
 {
 
 }
@@ -108,50 +107,50 @@ enum<E> jRray::elements()
 
 }
 
-void jRray::copyInto(T anArray[])
+template<typename T> void jRray<T>::copyInto(T anArray[])
 {
 
 }
-bool jRray::containsAll(T c[])
+template<typename T> bool jRray<T>::containsAll(T c[])
 {
 
 }
-bool jRray::containsAll(std::vector<T> c)
+template<typename T> bool jRray<T>::containsAll(std::vector<T> c)
 {
 
 }
-bool jRray::containsAll(jRray c)
-{
-
-}
-
-
-int jRray::capacity()
+template<typename T> bool jRray<T>::containsAll(jRray c)
 {
 
 }
 
-bool jRray::addAll(int index, T []c)
+
+template<typename T> int jRray<T>::capacity()
 {
 
 }
-bool jRray::addAll(int index, std::vector<T> c)
+
+template<typename T> bool jRray<T>::addAll(int index, T []c)
 {
 
 }
-bool jRray::addAll(int index, jRray c)
+template<typename T> bool jRray<T>::addAll(int index, std::vector<T> c)
 {
 
 }
-bool jRray::addAll(T c[])
+template<typename T> bool jRray<T>::addAll(int index, jRray c)
 {
 
 }
-bool jRray::addAll(std::vector<T> c)
+template<typename T> bool jRray<T>::addAll(T c[])
 {
 
 }
-bool jRray::addAll(jRray c)
+template<typename T> bool jRray<T>::addAll(std::vector<T> c)
+{
+
+}
+template<typename T> bool jRray<T>::addAll(jRray c)
 {
     for(int i = 0; i < c.size(); i++)
     {
@@ -164,11 +163,11 @@ jRray& jRray::operator=( const jRray& other )
 {
 
 }
-jRray::~jRray()
+template<typename T> jRray<T>::~jRray()
 {
 
 }
-jRray::jRray()
+template<typename T> jRray<T>::jRray()
 {
 
 }
