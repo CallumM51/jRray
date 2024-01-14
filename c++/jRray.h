@@ -11,6 +11,7 @@
 #include <string>
 #include <unordered_set>
 #include <set>
+#include <functional>
 template <typename T> struct Comparator {
     bool operator()(T x, T y) const {
        return true;
@@ -30,12 +31,10 @@ template<typename T> class jRray
     jRray();
     ~jRray();
 
-<<<<<<< Updated upstream
-=======
     jRray(jRray<T> &j);
     jRray(std::vector<T> &v);
     jRray(T t[], int size);
->>>>>>> Stashed changes
+    jRray(int size);
     //assignment operators
     jRray<T>& operator=( const jRray<T>& other );
 
@@ -280,7 +279,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    bool removeIf(Predicate<? super E> filter); //!!Maybe 
+    bool removeIf(const Condition<T> &func); //!!Maybe 
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -292,7 +291,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    void replaceAll(UnaryOperator<E> operator); //!!Same implementation as removeIf()
+    void replaceAll(const Condition<T> &func); //!!Same implementation as removeIf()
     //REQUIRES:
     //  lorem
     // PROMISES:

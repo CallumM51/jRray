@@ -170,3 +170,14 @@ template <typename T> void jRray<T>::addElement(const T &obj)
 {
     vec.push_back(obj);
 }
+template <typename T> bool jRray<T>::remove(const T &t){
+    for(int i = 0; i < vec.size(); i++)
+    {
+        if(vec[i] == t)
+        {
+            vec.erase(vec.begin() + i);
+            return true;
+        }
+    }
+    return false;
+}
