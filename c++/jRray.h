@@ -10,9 +10,7 @@
 #include <iterator>
 #include <string>
 
-template<class T>
-
-class jRray 
+template<typename T> class jRray
 {
     private:
         std::vector<T> vec;
