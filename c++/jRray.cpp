@@ -129,15 +129,51 @@ template<typename T> void jRray<T>::removeAllElements()
 
 template<typename T> bool jRray<T>::removeAll(const T &c)
 {
+    std::unordered_set<T> set;
+    for(int i = 0; i < c.size(); i++)
+    {
+        set.insert(c[i]);
+    }
 
+    for(int i = 0; i < vec.size(); i++)
+    {
+        if(set.find(vec[i]) != set.end())
+        {
+            vec.remove(vec.begin() + i);
+        }
+    }
 }
 template<typename T> bool jRray<T>::removeAll(const std::vector<T> &c)
 {
+    std::unordered_set<T> set;
+    for(int i = 0; i < c.size(); i++)
+    {
+        set.insert(c[i]);
+    }
 
+    for(int i = 0; i < vec.size(); i++)
+    {
+        if(set.find(vec[i]) != set.end())
+        {
+            vec.remove(vec.begin() + i);
+        }
+    }
 }
 template<typename T> bool jRray<T>::removeAll(const jRray &c)
 {
+    std::unordered_set<T> set;
+    for(int i = 0; i < c.size(); i++)
+    {
+        set.insert(c.at[i]);
+    }
 
+    for(int i = 0; i < vec.size(); i++)
+    {
+        if(set.find(vec[i]) != set.end())
+        {
+            vec.remove(vec.begin() + i);
+        }
+    }
 }
 
 
@@ -164,7 +200,9 @@ template<typename T> void jRray<T>::forEach(const std::function<void(int)> func)
 
 template<typename T> void jRray<T>::ensureCapacity(const int &minCapacity)
 {
-
+    if (vec.size() < minCapacity) {
+        vec.reserve(minCapacity - vec.size());
+    }
 }
 
 // template<typename T> enum<E> jRray::elements()
