@@ -31,7 +31,7 @@ class jRray
     // PROMISES:
     //  lorem
 
-    void add(int index, T t);
+    void add(const int &index,const T &t);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -55,19 +55,19 @@ class jRray
     // PROMISES:
     //  lorem
 
-    bool addAll(int index, jRray c);
+    bool addAll(const int &index, const jRray &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool addAll(int index, std::vector<T> c);
+    bool addAll(const int &index,const std::vector<T> &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool addAll(int index, T []c);
+    bool addAll(const int &index, T []c);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -97,25 +97,25 @@ class jRray
     // PROMISES:
     //  lorem
 
-    bool contains(T t);
+    bool contains(const T &t);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool containsAll(jRray c);
+    bool containsAll(const jRray &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool containsAll(std::vector<T> c);
+    bool containsAll(const std::vector<T> &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool containsAll(T c[]);
+    bool containsAll(const T c[]);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -163,7 +163,7 @@ class jRray
     // PROMISES:
     //  lorem
 
-    T get(int index);
+    T get(const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -181,13 +181,13 @@ class jRray
     // PROMISES:
     //  lorem
 
-    int indexOf(T t, int index);
+    int indexOf(const T &t, const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    void insertElementAt(T t, int index);
+    void insertElementAt(const T &t,const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -205,43 +205,43 @@ class jRray
     // PROMISES:
     //  lorem
 
-    int lastIndexOf(T t);
+    int lastIndexOf(const T &t);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    int lastIndexOf(T t, int index);
+    int lastIndexOf(const T &t,const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    T remove(int index);
+    T remove(const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool remove(T t);
+    bool remove(const T &t);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool removeAll(jRray c);
+    bool removeAll(const jRray &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool removeAll(std::vector<T> c);
+    bool removeAll(const std::vector<T> &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool removeAll(T c[]);
+    bool removeAll(const T c[]);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -253,13 +253,13 @@ class jRray
     // PROMISES:
     //  lorem
 
-    bool removeElement(T t);
+    bool removeElement(const T &t);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    void removeElementAt(int index);
+    void removeElementAt(const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -271,7 +271,7 @@ class jRray
     // PROMISES:
     //  lorem
 
-    void removeRange(int fromIndex, int toIndex);
+    void removeRange(const int &fromIndex,const int &toIndex);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -283,37 +283,37 @@ class jRray
     // PROMISES:
     //  lorem
 
-    bool retainAll(jRray c);
+    bool retainAll(const jRray &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool retainAll(std::vector<T> c);
+    bool retainAll(const std::vector<T> &c);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    bool retainAll(T c[]);
+    bool retainAll(const T c[]);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    T set(int index, T element);
+    T set(const int &index,const T &element);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    void setElementAt(T obj, int index);
+    void setElementAt(const T &obj,const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    setSize(int newSize);
+    setSize(const int &newSize);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -331,13 +331,13 @@ class jRray
     // PROMISES:
     //  lorem
 
-    jRray subJrray(int fromIndex, int toIndex);
+    jRray subJrray(const int &fromIndex,const int &toIndex);
     //REQUIRES:
     //  lorem
     // PROMISES:
     //  lorem
 
-    std::vector<T> subVector(int fromIndex, int toIndex);
+    std::vector<T> subVector(const int &fromIndex,const int &toIndex);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -386,12 +386,7 @@ T[] jRray::toArray()
 }
 std::vector<T> jRray::subVector(const int &fromIndex,const int &toIndex)
 {
-    std::vector<T> temp;
-    for(int i = fromIndex; i < toIndex; i++)
-    {
-        temp.push_back(vec[i]);
-    }   
-    return temp;
+    return std::vector<T>(vec.begin() + fromIndex, vec.begin() + toIndex);
 }
 jRray jRray::subJrray(int fromIndex, int toIndex)
 {
@@ -504,9 +499,9 @@ bool jRray::isEmpty()
 {
     return vec.empty();
 }
-void jRray::insertElementAt(T t, int index)
+void jRray::insertElementAt(const T &t, const int &index)
 {
-
+    vec.insert(vec.begin() + index, t);
 }
 int jRray::indexOf(T t, int index)
 {
