@@ -477,7 +477,6 @@ template<typename T> class jRray
     */
 };
 
-#include "jRray.cpp"
 #include "jRray-create.cpp"
 #include "jRray-delete.cpp"
 #include "jRray-operators.cpp"
