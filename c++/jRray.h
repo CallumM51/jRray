@@ -164,7 +164,7 @@ template<typename T> class jRray
     // PROMISES:
     //  lorem
 
-    T& at(const int &index);
+    T at(const int &index);
     //REQUIRES:
     //  lorem
     // PROMISES:
@@ -476,7 +476,14 @@ template<typename T> class jRray
     *      void
     */
 };
+
 #include "jRray.cpp"
-#include "jRray-basic.cpp"
+#include "jRray-create.cpp"
+#include "jRray-delete.cpp"
+#include "jRray-operators.cpp"
+#include "jRray-retrieve.cpp"
+#include "jRray-set.cpp"
+#include "jRray-utility.cpp"
+#include "jRray-update.cpp"
 
 #endif
