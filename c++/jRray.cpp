@@ -81,6 +81,7 @@ template<typename T> void quicksort(std::vector<T> &vec, const int &left, const 
 
 
 }
+
 template<typename T> void jRray<T>::sort(const Comparator<T> &c)
 {
 

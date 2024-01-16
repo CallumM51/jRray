@@ -10,6 +10,8 @@ int main(){
     }
     std::cout << "I love you" << std::endl;
     a.sort(Comparator<int>());
+    jRray<int> b;
+    b.addAll(a);
     for(int i = 0; i < a.size(); i++)
     {
         std::cout << a.get(i) << std::endl;

@@ -32,6 +32,7 @@ template<typename T> class jRray
 {
     private:
         std::vector<T> vec;
+        bool(*compare)(T,T);
     public:
     //Constructors and Destructors
     jRray();
