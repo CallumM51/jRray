@@ -1,9 +1,6 @@
 #include "jRray.h"
 
-template <typename T> int jRray<T>::size()
-{
-    return vec.size();
-}
+
 
 template <typename T> void jRray<T>::setElementAt(const T &obj,const int &index)
 {
