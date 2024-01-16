@@ -1,3 +1,5 @@
+#include "jRray.h"
+
 template<typename T> jRray<T>::~jRray()
 {
     vec.clear();

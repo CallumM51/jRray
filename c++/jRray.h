@@ -485,5 +485,6 @@ template<typename T> class jRray
 #include "jRray-set.cpp"
 #include "jRray-utility.cpp"
 #include "jRray-update.cpp"
+#include "jRray-constructors.cpp"
 
 #endif
